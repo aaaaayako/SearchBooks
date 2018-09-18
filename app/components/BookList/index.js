@@ -9,7 +9,7 @@ const ItemListWrap = styled.ul`
   padding: 0;
 `
 
-const BookList = ({ books }) => (
+const BookList = ({ books = [] }) => (
   <ItemListWrap>
     {books.map(book => {
       const bookId = book.id

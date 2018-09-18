@@ -51,7 +51,7 @@ const SearchBox = props => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.toolBar}>
-          <form onSubmit={ev => setSearchWord(ev)}>
+          <form onSubmit={ev => setSearchWord(ev)} autoComplete="off">
             <div className={classes.search}>
               <IconButton type="submit" className={classes.searchIcon}>
                 <SearchIcon />
@@ -64,6 +64,7 @@ const SearchBox = props => {
                   input: classes.inputInput,
                 }}
                 name="inputText"
+                required
               />
             </div>
           </form>
