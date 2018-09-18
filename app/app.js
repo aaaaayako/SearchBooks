@@ -5,7 +5,7 @@ import store from './store'
 import getBooks from './actions/bookAction'
 import SearchBox from './components/SearchBox'
 
-import GetBookList from './containers/GetBookListContainer'
+import { GetBookList, GetErrorMsg } from './containers/GetBookListContainer'
 
 const ContentWrap = styled.div`
   font-family: '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium',
@@ -22,54 +22,17 @@ const BooksContainer = styled.div`
   min-height: 100vh;
 `
 
-// const ErrorText = styled.p`
-//   color: #ff0033;
-//   font-size: 14px;
-//   text-align: center;
-// `
-
-// const ErrorMessage = props => {
-//   const { isUndefindBooks } = props
-//   const errorMsg = '該当書籍がありません'
-//   return <ErrorText>{isUndefindBooks && errorMsg}</ErrorText>
-// }
-
-// class App extends React.Component {
-//   constructor() {
-//     super()
-//     this.state = {
-//       books: [],
-//       isUndefindBooks: false,
-//     }
-//     this.setSearchWord = this.setSearchWord.bind(this)
-//   }
-
-//   render() {
-//     const { books, isUndefindBooks } = this.state
-//     return (
-//       <ContentWrap>
-//         <SearchBox setSearchWord={this.setSearchWord} />
-//         <ErrorMessage isUndefindBooks={isUndefindBooks} />
-//         <BookList books={books} />
-//       </ContentWrap>
-//     )
-//   }
-// }
-
 const App = () => {
   const setSearchWord = ev => {
     ev.preventDefault()
-    if (ev.target.inputText.value) {
-      const inputWord = ev.target.inputText.value
-      store.dispatch(getBooks(inputWord))
-    } else {
-      alert('検索ワードを入力してください')
-    }
+    const inputWord = ev.target.inputText.value
+    store.dispatch(getBooks(inputWord))
   }
 
   return (
     <ContentWrap>
       <SearchBox setSearchWord={ev => setSearchWord(ev)} />
+      <GetErrorMsg />
       <BooksContainer>
         <GetBookList />
       </BooksContainer>

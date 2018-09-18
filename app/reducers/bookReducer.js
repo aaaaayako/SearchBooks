@@ -2,6 +2,7 @@ import {
   GET_BOOKS_REQUEST,
   GET_BOOKS_SUCCESS,
   GET_BOOKS_FAILURE,
+  GET_NO_BOOKS,
 } from '../actionTypes/bookActionType'
 
 const initialState = {
@@ -34,6 +35,14 @@ const books = (state = [initialState], action) => {
         {
           isFetching: false,
           error: action.error,
+        },
+      ]
+    case GET_NO_BOOKS:
+      return [
+        ...state,
+        {
+          isFetching: false,
+          message: action.message,
         },
       ]
     default:
