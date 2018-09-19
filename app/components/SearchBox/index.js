@@ -1,6 +1,7 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Input from '@material-ui/core/Input'
+import InputLabel from '@material-ui/core/InputLabel'
 import { fade } from '@material-ui/core/styles/colorManipulator'
 import { withStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
@@ -33,7 +34,7 @@ const styles = theme => ({
     zIndex: 1,
   },
   inputRoot: {
-    color: 'inherit',
+    color: '#fff',
     width: '100%',
   },
   inputInput: {
@@ -53,19 +54,25 @@ const SearchBox = props => {
         <Toolbar className={classes.toolBar}>
           <form onSubmit={ev => setSearchWord(ev)} autoComplete="off">
             <div className={classes.search}>
-              <IconButton type="submit" className={classes.searchIcon}>
+              <IconButton
+                type="submit"
+                className={classes.searchIcon}
+                aria-label="search"
+              >
                 <SearchIcon />
               </IconButton>
-              <Input
-                placeholder="Search..."
-                disableUnderline
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                name="inputText"
-                required
-              />
+              <InputLabel>
+                <Input
+                  placeholder="Search..."
+                  disableUnderline
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  name="inputText"
+                  required
+                />
+              </InputLabel>
             </div>
           </form>
         </Toolbar>
