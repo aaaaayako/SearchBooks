@@ -45,7 +45,7 @@ const styles = theme => ({
     width: '100%',
   },
   inputLabel: {
-    position: 'relative',
+    position: 'absolute',
     display: 'inline-block',
     width: 0,
     height: 0,
