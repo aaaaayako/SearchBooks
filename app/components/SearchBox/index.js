@@ -60,8 +60,9 @@ const SearchBox = props => {
               >
                 <SearchIcon />
               </IconButton>
+              <label htmlFor="searchBooksInput" />
               <Input
-                data-id="searchBooksInput"
+                id="searchBooksInput"
                 placeholder="Search..."
                 disableUnderline
                 classes={{
@@ -71,7 +72,6 @@ const SearchBox = props => {
                 name="inputText"
                 required
               />
-              <label htmlFor="searchBooksInput" />
             </div>
           </form>
         </Toolbar>

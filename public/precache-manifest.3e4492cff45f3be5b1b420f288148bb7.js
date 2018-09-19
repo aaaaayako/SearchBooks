@@ -8,7 +8,7 @@ self.__precacheManifest = [
     "url": "./assets/img/noimage.png"
   },
   {
-    "revision": "950ffe0a6ffc250ea0f309f9e0ab497c",
+    "revision": "6693073de7bfe860ad060a02b47c30d8",
     "url": "./index.html"
   },
   {
@@ -40,6 +40,6 @@ self.__precacheManifest = [
     "url": "./assets/img/icons/icon-128x128.png"
   },
   {
-    "url": "./app.32159393f32b2853a04b.js"
+    "url": "./app.d75e5258677736a8730b.js"
   }
 ];
