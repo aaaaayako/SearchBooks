@@ -50,6 +50,7 @@ const styles = theme => ({
     width: 0,
     height: 0,
     zIndex: -100,
+    color: '#000',
   },
 })
 
