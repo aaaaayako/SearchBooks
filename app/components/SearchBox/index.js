@@ -44,6 +44,13 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * '10',
     width: '100%',
   },
+  inputLabel: {
+    position: 'relative',
+    display: 'inline-block',
+    width: 0,
+    height: 0,
+    zIndex: -100,
+  },
 })
 
 const SearchBox = props => {
@@ -61,18 +68,23 @@ const SearchBox = props => {
               >
                 <SearchIcon />
               </IconButton>
-              <InputLabel>
-                <Input
-                  placeholder="Search..."
-                  disableUnderline
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  name="inputText"
-                  required
-                />
+              <InputLabel
+                htmlFor="bookSearchInput"
+                className={classes.inputLabel}
+              >
+                検索
               </InputLabel>
+              <Input
+                id="bookSearchInput"
+                placeholder="Search..."
+                disableUnderline
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                name="inputText"
+                required
+              />
             </div>
           </form>
         </Toolbar>
