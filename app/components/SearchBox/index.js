@@ -53,10 +53,15 @@ const SearchBox = props => {
         <Toolbar className={classes.toolBar}>
           <form onSubmit={ev => setSearchWord(ev)} autoComplete="off">
             <div className={classes.search}>
-              <IconButton type="submit" className={classes.searchIcon}>
+              <IconButton
+                type="submit"
+                className={classes.searchIcon}
+                aria-label="search"
+              >
                 <SearchIcon />
               </IconButton>
               <Input
+                data-id="searchBooksInput"
                 placeholder="Search..."
                 disableUnderline
                 classes={{
@@ -66,6 +71,7 @@ const SearchBox = props => {
                 name="inputText"
                 required
               />
+              <label htmlFor="searchBooksInput" />
             </div>
           </form>
         </Toolbar>

@@ -15,6 +15,14 @@ module.exports = {
         aspects: ['noHref', 'invalidHref', 'preferButton'],
       },
     ],
+    'jsx-a11y/label-has-for': [ 2, {
+      'components': [ 'Label' ],
+      'required': {
+          'some': [ 'nesting', 'id' ]
+      },
+      'allowChildren': false,
+      },
+    ],
 
     // 型はflowで管理する
     'react/prop-types': 0,
