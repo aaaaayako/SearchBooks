@@ -60,9 +60,7 @@ const SearchBox = props => {
               >
                 <SearchIcon />
               </IconButton>
-              <label htmlFor="searchBooksInput" />
               <Input
-                id="searchBooksInput"
                 placeholder="Search..."
                 disableUnderline
                 classes={{
