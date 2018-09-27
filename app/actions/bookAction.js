@@ -53,7 +53,7 @@ const getBooks = (searchWord, startIndex = 0) => dispatch =>
                 searchWord,
               ),
             )
-          : dispatch(createFailAction(err, searchWord)),
+          : dispatch(createFailAction(err.message, searchWord)),
     )
 
 export default getBooks
