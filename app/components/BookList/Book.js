@@ -28,6 +28,8 @@ const styles = () => ({
   },
 })
 
+const replaceHttpsUrl = url => url.replace('http', 'https')
+
 const Book = props => {
   const {
     imageLinks,
@@ -53,7 +55,7 @@ const Book = props => {
         className={classes.cover}
         image={
           imageLinks !== undefined
-            ? imageLinks.thumbnail
+            ? replaceHttpsUrl(imageLinks.thumbnail)
             : './assets/img/noimage.png'
         }
       />

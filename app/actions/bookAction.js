@@ -49,7 +49,7 @@ const getBooks = (searchWord, startIndex = 0) => dispatch =>
         err.message === 'Network Error'
           ? dispatch(
               createFailAction(
-                `【オフライン】"${searchWord}"はオンライン時に未検索です`,
+                `【オフライン】"${searchWord}"はオンライン時に未検索、または全書籍表示していないため、現在表示できません`,
                 searchWord,
               ),
             )
