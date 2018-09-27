@@ -8,6 +8,8 @@
 ## Demo
 ![demo](https://raw.github.com/wiki/aaaaayako/react-pwa-searchbooks/searchbooks-demo.gif)
 
+<img src="https://raw.github.com/wiki/aaaaayako/react-pwa-searchbooks/searchbooks-demo.gif?raw=true">
+
 ## Usage
 ```
 git clone https://github.com/aaaaayako/react-pwa-searchbooks.git
