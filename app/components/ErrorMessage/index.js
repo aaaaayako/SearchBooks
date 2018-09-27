@@ -32,12 +32,11 @@ const ErrorText = props => {
   )
 }
 
-const ErrorMsg = ({ message = [], classes }) =>
-  message.length !== 0 && (
-    <SnackbarContent
-      className={classes.snackbar}
-      message={<ErrorText classes={classes} message={message} />}
-    />
-  )
+const ErrorMessage = ({ errorMessage = '', classes }) => (
+  <SnackbarContent
+    className={classes.snackbar}
+    message={<ErrorText classes={classes} message={errorMessage} />}
+  />
+)
 
-export default withStyles(styles)(ErrorMsg)
+export default withStyles(styles)(ErrorMessage)

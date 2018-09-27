@@ -4,7 +4,7 @@ import styledNormalize from 'styled-normalize'
 import { injectGlobal } from 'styled-components'
 import { Provider } from 'react-redux'
 import store from './store'
-import App from './app'
+import GetBookListContainer from './containers/GetBookListContainer'
 
 injectGlobal`
   ${styledNormalize}
@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator) {
 
 render(
   <Provider store={store}>
-    <App />
+    <GetBookListContainer />
   </Provider>,
   document.getElementById('app'),
 )

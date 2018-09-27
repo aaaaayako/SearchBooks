@@ -54,13 +54,19 @@ const styles = theme => ({
   },
 })
 
+const setSearchWord = (ev, getBooks) => {
+  ev.preventDefault()
+  const inputWord = ev.target.inputText.value
+  getBooks(inputWord)
+}
+
 const SearchBox = props => {
-  const { setSearchWord, classes } = props
+  const { getBooks, classes } = props
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.toolBar}>
-          <form onSubmit={ev => setSearchWord(ev)} autoComplete="off">
+          <form onSubmit={ev => setSearchWord(ev, getBooks)} autoComplete="off">
             <div className={classes.search}>
               <IconButton
                 type="submit"
@@ -77,7 +83,7 @@ const SearchBox = props => {
               </InputLabel>
               <Input
                 id="bookSearchInput"
-                placeholder="Search..."
+                placeholder="タイトルで検索"
                 disableUnderline
                 classes={{
                   root: classes.inputRoot,
