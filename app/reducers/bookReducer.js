@@ -1,50 +1,46 @@
 import {
-  GET_BOOKS_REQUEST,
-  GET_BOOKS_SUCCESS,
+  GET_BOOKS,
+  GET_MORE_BOOKS,
   GET_BOOKS_FAILURE,
-  GET_NO_BOOKS,
 } from '../actionTypes/bookActionType'
 
 const initialState = {
   isFetching: false,
-  items: [],
+  bookArray: { totalItems: 0, items: [] },
+  word: '',
+  error: '',
 }
 
-const books = (state = [initialState], action) => {
+const books = (state = initialState, action) => {
+  const increasedBooks = state.bookArray.items.concat(action.booksItems)
   switch (action.type) {
-    case GET_BOOKS_REQUEST:
-      return [
+    case GET_BOOKS: {
+      return {
         ...state,
-        {
-          isFetching: true,
-          items: [],
-        },
-      ]
-    case GET_BOOKS_SUCCESS:
-      return [
+        isFetching: false,
+        bookArray: action.books,
+        word: action.searchWord,
+        error: '',
+      }
+    }
+    case GET_MORE_BOOKS: {
+      return {
         ...state,
-        {
-          isFetching: false,
-          items: action.books,
-          lastUpdated: action.receivedAt,
-        },
-      ]
-    case GET_BOOKS_FAILURE:
-      return [
+        isFetching: false,
+        bookArray: { ...action.books, items: increasedBooks },
+        word: action.searchWord,
+        error: '',
+      }
+    }
+    case GET_BOOKS_FAILURE: {
+      return {
         ...state,
-        {
-          isFetching: false,
-          error: action.error,
-        },
-      ]
-    case GET_NO_BOOKS:
-      return [
-        ...state,
-        {
-          isFetching: false,
-          message: action.message,
-        },
-      ]
+        isFetching: false,
+        bookArray: { totalItems: 0, items: [] },
+        word: action.searchWord,
+        error: action.errorMessage,
+      }
+    }
     default:
       return state
   }

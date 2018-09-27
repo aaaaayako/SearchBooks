@@ -11,7 +11,6 @@ const styles = () => ({
     marginBottom: 20,
   },
   content: {
-    flex: '1 0 auto',
     width: 180,
   },
   title: {
@@ -24,7 +23,7 @@ const styles = () => ({
     fontWeight: 'bold',
   },
   cover: {
-    width: 140,
+    width: 180,
     height: 200,
   },
 })

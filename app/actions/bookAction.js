@@ -1,53 +1,59 @@
 import axios from 'axios'
 import {
-  GET_BOOKS_REQUEST,
-  GET_BOOKS_SUCCESS,
+  GET_BOOKS,
+  GET_MORE_BOOKS,
   GET_BOOKS_FAILURE,
-  GET_NO_BOOKS,
 } from '../actionTypes/bookActionType'
 
-const getBooksRequest = () => ({ type: GET_BOOKS_REQUEST })
-
-const getBooksSuccess = json => ({
-  type: GET_BOOKS_SUCCESS,
+const createCommonAction = (json, searchWord) => ({
+  type: GET_BOOKS,
   books: json,
   receiveAt: Date.now(),
+  searchWord,
 })
 
-const getBooksFailure = error => ({
+const createMoreSearchAction = (json, searchWord) => ({
+  type: GET_MORE_BOOKS,
+  books: json,
+  booksItems: json.items,
+  receiveAt: Date.now(),
+  searchWord,
+})
+
+const createFailAction = (errorMessage, searchWord) => ({
   type: GET_BOOKS_FAILURE,
-  err: error.message,
+  receiveAt: Date.now(),
+  searchWord,
+  errorMessage,
 })
 
-const getNoBooks = error => ({
-  type: GET_NO_BOOKS,
-  message: error,
-})
-
-const getBooks = searchWord => dispatch => {
-  dispatch(getBooksRequest())
-  return axios
+const getBooks = (searchWord, startIndex = 0) => dispatch =>
+  axios
     .get(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchWord}&startIndex=1&maxResults=40`,
+      `https://www.googleapis.com/books/v1/volumes?q=intitle:${searchWord}&startIndex=${startIndex}&maxResults=40`,
     )
     .then(res => {
       // 検索ワードにマッチする書籍が存在しない場合
-      if (res.data.items === undefined) {
-        dispatch(getNoBooks('該当する書籍が見つかりませんでした'))
+      if (startIndex === 0 && res.data.items === undefined) {
+        dispatch(
+          createFailAction('該当する書籍が見つかりませんでした', searchWord),
+        )
+      } else if (startIndex === 0) {
+        dispatch(createCommonAction(res.data, searchWord))
       } else {
-        dispatch(getBooksSuccess(res.data.items))
+        dispatch(createMoreSearchAction(res.data, searchWord))
       }
     })
     .catch(
       err =>
         err.message === 'Network Error'
           ? dispatch(
-              getNoBooks(
-                '【オフライン】検索したことのある書籍のみ検索できます',
+              createFailAction(
+                `【オフライン】"${searchWord}"はオンライン時に未検索です`,
+                searchWord,
               ),
             )
-          : dispatch(getBooksFailure(err)),
+          : dispatch(createFailAction(err, searchWord)),
     )
-}
 
 export default getBooks

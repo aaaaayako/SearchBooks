@@ -18,7 +18,7 @@ module.exports = {
 
     // 型はflowで管理する
     'react/prop-types': 0,
-    'no-magic-numbers': ['error', { ignore: [-1, 0, 1] }],
+    'no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2] }],
 
     // styled-normalize読み込みのため
     'no-unused-expressions': ['error', { "allowTaggedTemplates": true }],
