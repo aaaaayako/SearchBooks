@@ -6,6 +6,7 @@
 - 一度検索したことのある書籍はオフライン時でも再検索、一覧表示可能
 
 ## Demo
+オフラインでの動作
 ![demo](https://raw.github.com/wiki/aaaaayako/react-pwa-searchbooks/searchbooks-demo.gif)
 
 ## Usage
