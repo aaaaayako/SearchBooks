@@ -8,7 +8,7 @@
 ## Demo
 ![demo](https://raw.github.com/wiki/aaaaayako/react-pwa-searchbooks/searchbooks-demo.gif)
 
-<img src="https://raw.github.com/wiki/aaaaayako/react-pwa-searchbooks/searchbooks-demo.gif?raw=true" width="500px">
+<img src="https://raw.github.com/wiki/aaaaayako/react-pwa-searchbooks/searchbooks-demo.gif?raw=true" width="800px">
 
 ## Usage
 ```
