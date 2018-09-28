@@ -15,3 +15,6 @@ git clone https://github.com/aaaaayako/react-pwa-searchbooks.git
 ```
 npm i
 ```
+```
+npm start
+```
